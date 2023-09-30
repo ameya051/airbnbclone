@@ -11,6 +11,7 @@ import Button from "../Button";
 import { FcGoogle } from "react-icons/fc";
 import { AiFillGithub } from "react-icons/ai";
 import { signIn } from "next-auth/react";
+import {toast} from "react-hot-toast";
 
 const RegisterModal = () => {
   const registerModal = useRegisterModal();
@@ -36,7 +37,7 @@ const RegisterModal = () => {
         registerModal.onClose;
       })
       .catch((error) => {
-        console.log(error);
+        toast.error(error.message)
       });
     setIsLoading(false);
   };
